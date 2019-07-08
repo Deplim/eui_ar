@@ -1,3 +1,5 @@
+#by Eui Ryeong , wjddmflud@gmail.com
+
 def factorial(n):
     sum = 1
     for i in range(n-1):
