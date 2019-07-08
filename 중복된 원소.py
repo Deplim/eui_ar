@@ -3,14 +3,21 @@
 # 단, 공간복잡도 O(1)이여야 합니다.
 
 def Duplicate_elements(ar):
-    a=[]
+    a=0
     for i in range(len(ar)):
+        if(ar[i]==None): continue
+        a=ar[i]
         for j in range(len(ar)):
             if(i==j): continue
             if(ar[i]==ar[j]):
-                if ar[i] not in a:
-                    a.append(ar[i])
-    print(a)
+                ar[j]=None
+                if(ar[i]!=None):
+                    print(ar[i])
+                    ar[i]=None
 
-ar=input("배열을 입력하시오.(공백 없이) : ")
+
+a=input("배열을 입력하시오.(공백 없이) : ")
+ar=[]
+for i in range(len(a)):
+    ar.append(a[i])
 Duplicate_elements(ar)
