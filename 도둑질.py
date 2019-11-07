@@ -1,4 +1,4 @@
-#프로그래머스 문제 : 도둑질 (https://programmers.co.kr/learn/courses/30/lessons/42897?language=python3)
+#프로그래머스 문제: 도둑질 (https://programmers.co.kr/learn/courses/30/lessons/42897?language=python3)
 # >> 풀이 by DepLim , wjddmflud@gmail.com
 def solution(money):
     hlen = len(money)
