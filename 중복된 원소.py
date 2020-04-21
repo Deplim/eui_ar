@@ -1,4 +1,4 @@
-#by Eui Ryeong , wjddmflud@gmail.com
+# EuiRyeong Jeong (wjddmflud@gmail.com, https://github.com/Deplim)
 #랜덤한 정수 배열이 주어지면 중복된 원소의 값을 모두 프린트 하시오.
 # 단, 공간복잡도 O(1)이여야 합니다.
 

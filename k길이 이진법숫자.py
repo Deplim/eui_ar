@@ -1,4 +1,4 @@
-#by Eui Ryeong , wjddmflud@gmail.com
+# EuiRyeong Jeong (wjddmflud@gmail.com, https://github.com/Deplim)
 #Given an integer K, print all binary strings of length K without consecutive 1s.
 
 class Stack(list):

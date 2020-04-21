@@ -1,5 +1,5 @@
 #프로그래머스 문제: 지형 편집 (https://programmers.co.kr/learn/courses/30/lessons/12984
-# >> 풀이 by DepLim , wjddmflud@gmail.com
+# EuiRyeong Jeong (wjddmflud@gmail.com, https://github.com/Deplim)
 
 def solution(land, P, Q):
     n = len(land)

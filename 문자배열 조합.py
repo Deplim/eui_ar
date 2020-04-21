@@ -1,4 +1,4 @@
-#by Eui Ryeong , wjddmflud@gmail.com
+# EuiRyeong Jeong (wjddmflud@gmail.com, https://github.com/Deplim)
 
 def factorial(n):
     sum = 1
