@@ -2,40 +2,44 @@
 # 2020 Dev-Matching 웹 백엔드 개발자(상반기) 3번.py
 # 8자리 숫자 배열이 주어졌을 때 각 옆자리의 차가 k 이하가 되게 하는 최소한의 교환횟수를 찾아라.
 
+def check(target, k):
+    result=0
+    for i in range(len(target)-1):
+        temp=max(target[i], target[i+1])-min(target[i], target[i+1])
+        if temp>k:
+            result=result+(temp//k+(temp%k>0))-1
+    return result
 
+def solution(target, k):
+    result=check(target, k)
+    count=0
+    print(target)
 
-'''
-비연결, greedy, 선택에 의한 이후 선택지의 변화
-동적 프로그래밍 x, 알맞은 목표상태와 점수의 기준을 찾아야 함.
-목표상태와 원소교환에 의한 상태변화를 어떻게 설명하는게 좋은가 ?
-시점을 바꿔보자
-정렬상태로 바꾸는게 최소로 필요한 교환횟수의 "최대"
-어떤 상태이던 최대 8번 교환 안에 만들 수 있음.
->>
-최소한의 원소 교환을 옆자리를 일정 차이 이내로 ! (8자리)
+    # 방법이 없을때 k 반환
+    temp_target=target[:]
+    temp_target.sort()
+    if check(temp_target, k)!=0:
+        print("방법 없음")
+        return -1
 
-수학적인 규칙으로 최소한의 교환을 찾는게 아닌
-경우의 수를 펼쳐서 찾는다 ?
+    while 1:
+        if result==0:
+            break
 
-항상 최선의 경우를 구해줄 수 있는 규칙이 없다는 것을 증명할 수 있는가?
-재귀함수 : 최대 8번 들어갈 수 있음
->계산을 너무 많이해야 함 28^8
+        for i in range(len(target)):
+            for j in range(i+1, len(target)):
+                temp_target=target[:]
+                temp_target[i] , temp_target[j] = temp_target[j] , temp_target[i]
+                temp_result=check(temp_target, k)
 
-재귀함수를 쓴다고 해도 기본적으로 선택지를 줄여줘야함.
-최소 8번 옮겨야지만 해결할 수 있는 경우가 진짜로 있는가 ?
+                if result>temp_result:
+                    result=temp_result
+                    next_target=temp_target
 
-*냅섹문제에 대하여 생각한 것들
-무게제한이 있는 가방에 물건을 담아 가격의 총합을 가장 크게 하기 >
+        count=count+1
+        target=next_target
+        print(target)
 
-가격이 큰 물건부터 담는다 >
-가방에 담은 각 물건의 가격을 a(n) 이라고 하면
-가격의 총합은  " average(a(n)) * n "  으로 표현할 수 있다.
-그러나 가장 가격이 큰 물건부터 담는다는 사실만으로는 a(n) 의 평균가격이 크다는것도 보장할 수 없고
-무엇보다  물건의 갯수  n 이 알 수 없는 영역이 되므로 안됨.
+    return count
 
-무게 대비 가격 효율이 큰 물건부터 담는다 >
-
-
-
-'''
-
+solution([3,7,2,8,6,4,5,1], 3)
