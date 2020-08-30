@@ -12,7 +12,7 @@
 
 * \n 없는 print 사용하기 -> print(target, end='')
 
-* map(함수, 대상) -> ex: list(map(int), array) , a, b = map(int, input().strip().split(' '))
+* map(함수, 대상) -> ex: map(int, input().strip().split(' '))
 
 * split() 매개변수로 나눌 기준 넘김. '' 는 안됨.
 
@@ -43,29 +43,3 @@
 * 배열 세로로 저장하기 -> ex: board2.append([k[i] for k in board])
 
 * 함수 분리를 해야할때와 굳이 필요없을때를 구분을 잘 하자.
-
-
-def solution(s):
-    answer = []
-    
-    s=s[1:-1]
-    s=s.split("}")
-    s=s[:-1]
-    
-    target=[0 for i in s]
-    
-    for i in range(len(s)):
-        s[i]=s[i].replace(",{", "")
-        s[i]=s[i].replace("{", "")
-        s[i]=s[i].split(",")
-        target[len(s[i])-1]=s[i]
-    print(target)
-    
-    temp=target[0]
-    for i in range(1, len(target)):
-        v=target[i]-temp
-        answer.append(v[0])
-        temp=target[i]
-    
-    
-    return answer

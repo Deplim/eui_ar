@@ -1,4 +1,4 @@
-# https://medium.com/@dltkddud4403/python-순열-조합-구현-5e496e74621c 참조
+# 참조 : https://medium.com/@dltkddud4403/python-순열-조합-구현-5e496e74621c
 
 def comb(lst, n):
     ret = []
@@ -30,3 +30,5 @@ def perm(lst, n):
                 ret.append([lst[i]] + p)
 
     return ret
+
+print(perm([1,2,3], 3))

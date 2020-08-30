@@ -1,7 +1,6 @@
 # EuiRyeong Jeong (wjddmflud@gmail.com, https://github.com/Deplim)
 # 프로그래머스 : 불량 사용자 (https://programmers.co.kr/learn/courses/30/lessons/64064)
-
-from ref.순열_조합 import comb, perm
+import ref.순열_조합
 
 def check(a, b):
     for i in b:

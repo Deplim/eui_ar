@@ -1,17 +1,20 @@
 # EuiRyeong Jeong (wjddmflud@gmail.com, https://github.com/Deplim)
-# 2차원 배열 회전
+# 파이썬 테스트
 
-def rotate_90(target):
-    size=len(target)
-    result=[[0]*size for _ in range(size)]
+'''
+import tensorflow as tf
 
-    for i in range(size):
-        for j in range(size):
-            result[j][(size-1)-i]=target[i][j]
-    return result
+with tf.compat.v1.Session() as sess:
+  h = tf.constant("Hello")
+  w = tf.constant("World!")
+  hw = h + w
+  ans = sess.run(hw)
+  print(ans)
+'''
 
-temp=[[1, 0, 8],
-      [9, 3, 1],
-      [12, -1, 4]]
-
-print(rotate_90(temp))
+a=""
+try:
+  a="k"
+  raise Exception('test exception raise')
+except:
+  print(a)
