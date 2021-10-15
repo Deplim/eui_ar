@@ -3,6 +3,7 @@
 
 import heapq
 
+print("k")
 def solution(scoville, K):
     current=[]
     

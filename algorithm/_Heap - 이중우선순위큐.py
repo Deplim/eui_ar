@@ -22,3 +22,24 @@ def solution(operations):
         answer=[max(result), min(result)]
     
     return answer
+
+
+def solution2(operations):
+    result=[]
+    split_o=list(map(lambda x:x.split(" "), operations))
+    
+    for i in split_o:
+        if i[0]=='I':
+            heapq.heappush(result, int(i[1]))
+        elif i[1]=='1' and len(result)!=0:
+            result.remove(heapq.nlargest(1, result)[0])
+        elif i[1]=='-1' and len(result)!=0:
+            heapq.heappop(result)
+    
+    
+    if len(result)==0:
+        answer=[0, 0]
+    else:
+        answer=[max(result), min(result)]
+    
+    return answer
