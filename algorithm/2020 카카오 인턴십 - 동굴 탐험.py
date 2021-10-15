@@ -2,7 +2,8 @@
 # EuiRyeong Jeong (wjddmflud@gmail.com, https://github.com/Deplim)
 
 # 처음 풀었던 방식(solution2) 은 핵심 아이디어는 맞았으나 효율성 테스트 통과를 못함.
-# 알고리즘 최적화를 위해서는 cycle 을 확인할때, 탐색 시간복잡도가 O(1) 로 나오는 자료형을 써야함
+# 알고리즘 최적화를 위해 cylce 확인 부분에서 탐색 시간복잡도가 적게 들어가는 자료형을 사용.
+# + 그리고 현제 경로에 속한 노드를 stack 에 같이 넣어주는게 아니라, 외부에서 정의한 변수에 저장되게 끔 함.
 # 알고리즘을 잘 풀기 위해서는 사용하는 언어의 주요 자료형들 시간 복잡도를 알고있어야 한다.
 # https://wiki.python.org/moin/TimeComplexity
 
@@ -42,7 +43,7 @@ def solution(n, path, order):
         if ok[i]:
             continue
 
-        visit_list = {}
+        visit_list = {} # 재귀함수를 쓰지 않아도 현제 경로에 속한 노드를 계산하게끔 구현할 수 있다.
         on_visit = [] 
         global_visit_list = set()
         stack=[]
