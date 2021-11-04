@@ -1,5 +1,7 @@
-#프로그래머스 | 동굴 탐험 : (https://programmers.co.kr/learn/courses/30/lessons/67260)
+#프로그래머스 | 가장 먼 노드 : (https://programmers.co.kr/learn/courses/30/lessons/49189)
 # EuiRyeong Jeong (wjddmflud@gmail.com, https://github.com/Deplim)
+
+# solution2 -> solution : list 대신 deque 사용, visit 를 set 으로 구현
 
 from collections import deque
 
@@ -13,10 +15,11 @@ def solution(n, edge):
     visit = set([1])
     queue = deque([(1, 0)])
 
-    # list 대신 deque 사용, visit 를 set 으로 구현
     while queue:
         node, path=queue.popleft()
+
         answer[node]=path
+
         temp=[(i, path+1) for i in G[node] if i not in visit]
         for j in temp:
             visit.add(j[0])
