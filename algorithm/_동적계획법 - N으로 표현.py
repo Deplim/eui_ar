@@ -1,3 +1,6 @@
+#프로그래머스 | N으로 표현 : (https://programmers.co.kr/learn/courses/30/lessons/42895)
+# EuiRyeong Jeong (wjddmflud@gmail.com, https://github.com/Deplim)
+
 import numpy as np
 
 def solution(N, number):
