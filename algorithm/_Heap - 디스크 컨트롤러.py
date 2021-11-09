@@ -41,6 +41,8 @@ def solution(jobs):
     answer=math.floor(answer/job_length)
     return answer
 
+
+'''
 def solution2(jobs):
     target=[] # 대기중인 작업 대상
     time=0 # 현제 시간
@@ -87,3 +89,4 @@ def solution2(jobs):
     #print("\n\n\n\n\nanswer:", answer)    
     answer=math.trunc(answer/job_length)
     return answer
+'''

@@ -20,6 +20,7 @@ def full_search(number, target):
         return full_search(number+1, plus)+full_search(number+1, minus)
         
 
+'''
 def solution2(numbers, target):
     answer = full_search2(numbers, target)
     return answer
@@ -29,3 +30,4 @@ def full_search2(numbers,target):
         return (target-numbers[0]==0) or (target+numbers[0]==0)
     else:
         return full_search2(numbers[1:], target-numbers[0])+full_search2(numbers[1:], target+numbers[0])
+'''

@@ -28,7 +28,9 @@ def solution(n, edge):
     answer = answer.count(max(answer))
     return answer
 
-def solutio2(n, edge):
+
+'''
+def solution2(n, edge):
     answer = [-1]*(n+1)
     G={i+1:[] for i in range(n)}
     for a,b in edge:
@@ -49,3 +51,4 @@ def solutio2(n, edge):
             
     answer = answer.count(max(answer))
     return answer
+'''

@@ -74,6 +74,8 @@ def solution(n, path, order):
     
     return True
 
+
+'''
 def solution2(n, path, order):
     # 그래프가 tree 라고 가정한 풀이
     G={i:[] for i in range(n)}
@@ -123,3 +125,4 @@ def solution2(n, path, order):
         ok=ok|set(temp_list)
     
     return True
+'''
