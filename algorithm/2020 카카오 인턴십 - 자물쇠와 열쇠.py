@@ -3,82 +3,48 @@
 
 import copy
 
+def solution(key, lock):
+    key_len = len(key)
+    lock_len = len(lock)
 
+    zero_count = 0
+    for i in range(lock_len):
+        zero_count += lock[i].count(0)
 
+    start = (1-key_len, 1-key_len)
 
-def solution2(a, b):
-    # 열쇠
-    key = a
-    key_90 = rotate(key)
-    key_180 = rotate(key_90)
-    key_270 = rotate(key_180)
+    for rotate_key in range(4):
+        for y_ in range(key_len + lock_len - 1):
+            for x_ in range(key_len + lock_len -1):
+                coord_matching = (start[0] + y_, start[1] + x_)
+                target = [(y, x) for x in range(key_len) for y in range(key_len)]
+                count = 0
 
-    # 자물쇠
-    lock = b
+                for y, x in target:
+                    if (coord_matching[0]+y)<0 or (coord_matching[0]+y)>= lock_len:
+                        continue
+                    if (coord_matching[1]+x)<0 or (coord_matching[1]+x)>= lock_len:
+                        continue
+                    if (key[y][x] + lock[coord_matching[0] + y][coord_matching[1] + x]) != 1:
+                        break
+                    if key[y][x] == 1:
+                        count += 1
+                
+                if count == zero_count:
+                    return True
+        
+        rotate=[[0]*key_len for _ in range(key_len)]
 
-    # 자물쇠 '0'의 갯수
-    lock_0 = 0
-    for i in range(len(lock)):
-        lock_0 = lock_0 + lock[i].count(0)
-
-    padding(key, lock)
-    answer = False
-    for x_start in range(len(lock)-len(key)+1):
-        for y_start in range(len(lock)-len(key)+1):
-            # 해당 위치에 자물쇠의 0이 모두 존재하는가?
-            cnt = 0
-            for i in range(len(key)):
-                for j in range(len(key)):
-                    if lock[x_start+i][y_start+j] == 0:
-                        cnt = cnt + 1
-            if cnt == lock_0: # lock_0 = 자물쇠의 총 0의 갯수
-                for fit_key in [key, key_90, key_180, key_270]:
-                    new_lock_0 = lock_0
-                    key1_and_lock1 = 0
-                    for i in range(len(key)):
-                        for j in range(len(key)):
-                            # 열쇠의 1과 자물소의 1이 만난다 = i,j for문을 빠져나가라
-                            # 열쇠의 1과 자물쇠의 0이 만난다 = new_lock_0을 1씩 감소시켜라
-                            # 그 외에는 아무일도 일어나지 않는다
-                            if fit_key[i][j]==1 and lock[x_start+i][y_start+j]==1:
-                                key1_and_lock1 = 1
-                                break
-                            elif fit_key[i][j]==1 and lock[x_start+i][y_start+j]==0:
-                                new_lock_0 = new_lock_0 - 1
-                        if key1_and_lock1==1:
-                            break
-                    # 열쇠가 맞아 떨어진다.
-                    if new_lock_0 == 0:
-                        answer = True
-                        return answer     
-            else:
-                continue
-    return answer
-
-# key를 90도 회전시키기
-def rotate(key):
-    rotate_key = copy.deepcopy(key)
+        for i in range(key_len):
+            for j in range(key_len):
+                rotate[j][(key_len-1)-i] = key[i][j]
+        key = copy.deepcopy(rotate)
     
-    y = len(key) - 1
-    for i in range(len(key)):
-        x = 0
-        for j in range(len(key)):
-            rotate_key[x][y]= key[i][j]
-            x = x + 1
-        y = y-1
-    return rotate_key
+    return False
 
-def padding(key, lock):
-    len_key = len(key)
-    len_lock = len(lock)
-    
-    #왼쪽 오른쪽 padding
-    for i in range(len_lock):
-        lock[i] = [2]*(len_key-1) + lock[i] + [2]*(len_key-1)
-    # 윗부분 padding
-    for _ in range(len_key-1):
-        lock.insert(0, [2]*((len_key-1)*2 + len_lock))
-    # 아래부분 padding
-    for _ in range(len_key-1):
-        lock.append([2]*((len_key-1)*2 + len_lock))
-    # lock을 padding시켜주는 것이 목적이므로, return값이 없어도 무관하다.
+#import numpy as np
+#key_ = np.around(np.random.rand(3, 3))
+#lock_ = np.around(np.random.rand(5, 5))
+#print(key_)
+#print(lock_)
+#print(solution(key_.tolist(), lock_.tolist()))
