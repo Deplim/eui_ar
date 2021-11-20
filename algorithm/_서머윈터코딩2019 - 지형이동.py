@@ -1,6 +1,8 @@
 #프로그래머스 | 지형 이동 : (https://programmers.co.kr/learn/courses/30/lessons/62050)
 # EuiRyeong Jeong (wjddmflud@gmail.com, https://github.com/Deplim)
 
+from math import inf
+
 def solution(land, height):
     land_l = len(land)
     
@@ -46,9 +48,40 @@ def solution(land, height):
     #print(land_group)
     #print(g_graph)
     
+    
+    
+
+print(solution([[10, 11, 10, 11], [2, 21, 20, 10], [1, 20, 21, 11], [2, 1, 2, 1]], 1))
+
+
+'''
+    DIR = [(-1, 0), (1, 0), (0, -1), (0, 1)]    
+    answer = 0
+    queue = [land_group.pop(0)] # key가 1인 그룹을 queue에 넣음 
+
+    while queue:
+        min_height, key = inf, -1  
+        g_one = queue.pop(0)
+        inp = input()
+        for g_two_num, g_two in enumerate(land_group): # g_one과 비교할 그룹들 
+            for y1, x1 in g_one: # g_one의 y, x 좌표 
+                for y2, x2 in g_two: # g_two의 y, x 좌표 
+                    if (y1-y2, x1-x2) in DIR: # 둘의 차이가 DIR 안에 있으면 
+                        candi = abs(land[y1][x1] - land[y2][x2]) # 후보값 candi
+                        if candi < min_height: # candi가 min_height보다 작다면 
+                            min_height = candi # 후보값이 min_height를 대신함 
+                            key = g_two_num # min_height가 있는 그룹의 key 값 
+        if key!=-1: # key가 0이 아니면 
+            answer += min_height
+            queue.append(g_one + land_group.pop(key))
+    print(answer)
+    return answer
+'''
+
+'''
     graph_items = list(g_graph.items())
     graph_items.sort(key = lambda x:x[1])
-    print(graph_items)
+    
     count = 0
     connect = {}
     result = []
@@ -71,8 +104,4 @@ def solution(land, height):
             break
 
     return sum(result)
-
-import numpy as np
-    
-
-print(solution([[10, 11, 10, 11], [2, 21, 20, 10], [1, 20, 21, 11], [2, 1, 2, 1]], 1))
+'''
