@@ -1,5 +1,5 @@
-#프로그래머스 | 입양 시각 구하기(2) : (https://programmers.co.kr/learn/courses/30/lessons/59413)
-# EuiRyeong Jeong (wjddmflud@gmail.com, https://github.com/Deplim)
+--프로그래머스 | 입양 시각 구하기(2) : (https://programmers.co.kr/learn/courses/30/lessons/59413)
+-- EuiRyeong Jeong (wjddmflud@gmail.com, https://github.com/Deplim)
 
 SELECT *
 from PLACES
