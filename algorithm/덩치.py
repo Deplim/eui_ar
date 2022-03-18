@@ -6,9 +6,9 @@ def solution(inputs):
     Answer = []
 
     # 자신보다 더 "큰 덩치"의 사람의 수
-    for i, (w, h) in enumerate(inputs):
+    for w, h in inputs:
         score = 0
-        for i_, (w_, h_) in enumerate(inputs):
+        for w_, h_ in inputs:
             if w < w_ and h < h_:
                 score += 1
         Answer.append(score+1)
