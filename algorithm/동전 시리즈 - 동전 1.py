@@ -1,5 +1,19 @@
+# 백준 | 동전 1 : (https://www.acmicpc.net/problem/2293)
+# EuiRyeong Jeong (wjddmflud@gmail.com, https://github.com/Deplim)
+
+# 시관초과를 해결하지 못해 다른 사람의 코드를 참고함
+#
+# solution2 : 시간 초과 해결 못한 코드  |  solution : 참고한 코드
 
 def solution(target, input_):
+    DP = [1] + [0] * (target)
+    for coin in input_:
+        for i in range(coin, target+1):
+            DP[i] = DP[i] + DP[i-coin]
+    return DP[target]
+
+
+def solution2(target, input_):
     input_.sort(reverse=True)
     print(input_)
     Answer = 0
@@ -17,8 +31,9 @@ def solution(target, input_):
                 else:
                     next_queue[next_key] = queue[key]
 
+        print(queue)
         queue = next_queue
-
+        input()
     return queue[target]
 
 
