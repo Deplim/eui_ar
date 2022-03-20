@@ -2,7 +2,7 @@
 # EuiRyeong Jeong (wjddmflud@gmail.com, https://github.com/Deplim)
 
 # 시관초과를 해결하지 못해 다른 사람의 코드를 참고함
-#
+# https://yabmoons.tistory.com/491
 # solution2 : 시간 초과 해결 못한 코드  |  solution : 참고한 코드
 
 def solution(target, input_):
