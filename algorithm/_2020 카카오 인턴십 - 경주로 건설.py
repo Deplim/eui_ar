@@ -20,7 +20,7 @@ def solution(board):
     visit = [[[math.inf for _ in range(4)]
               for _ in range(n)] for _ in range(n)]
     queue = []
-    heapq.heappush(queue, (0, 0, 0, -1))
+    heapq.heappush(queue, (0, 0, 0, -1))  # cost, y, x, direciton
 
     for i in range(4):
         visit[0][0][i] = 0
