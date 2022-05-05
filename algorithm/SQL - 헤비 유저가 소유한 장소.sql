@@ -1,4 +1,4 @@
---프로그래머스 | 헤비 유저가 소유한 장소 : (https://programmers.co.kr/learn/courses/30/lessons/59413)
+--프로그래머스 | 헤비 유저가 소유한 장소 : (https://programmers.co.kr/learn/courses/30/lessons/77487)
 -- EuiRyeong Jeong (wjddmflud@gmail.com, https://github.com/Deplim)
 
 SELECT *

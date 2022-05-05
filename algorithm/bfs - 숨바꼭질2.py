@@ -7,32 +7,27 @@ def solution(a, b):
 
     cost = 0
     while queue:
-        next_queue = {}
-
-        flag = False
         for key in queue:
-            if key == b:
-                flag = True
+            visit.add(key)
 
-            if key in visit:
-                continue
-
-            temp = []
+        next_queue = {}
+        for key in queue:
+            target = []
             if key >= 0:
-                temp.append(key-1)
+                target.append(key-1)
             if key < b:
-                temp.extend([key+1, key*2])
+                target.extend([key+1, key*2])
 
-            for next_key in temp:
+            for next_key in target:
+                if next_key in visit:
+                    continue
                 if next_key in next_queue:
                     next_queue[next_key] += queue[key]
                 else:
                     next_queue[next_key] = queue[key]
-        if flag:
+        if b in queue:
             break
 
-        for key in queue:
-            visit.add(key)
         cost += 1
         queue = next_queue
 
